@@ -4,7 +4,8 @@ import os
 import hashlib
 import zlib
 import StringIO
-import scanmod #모듈화를 통해 추가된 부분
+import scanmod #모듈화를 통해 추가된 부분 (바이러스 검사용 모듈)
+import curemod #모듈화를 통해 추가된 부분 (치료용 모듈)
 
 #바이러스 DB ==> 암호화된 virus.kmd에 존재
 VirusDB = []
@@ -96,7 +97,7 @@ if __name__ == '__main__':
     if ret == True:
         print 'virus'
         print '%s : %s' %(fname, vname)
-        os.remove(fname)
+        curemod.CureDelete(fname)
     else:
             print 'No virus'
             print '%s : ok' %(fname)
