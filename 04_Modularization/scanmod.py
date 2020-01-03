@@ -45,3 +45,19 @@ def ScanStr(fp, offset, mal_str):
         else:
                 return False
 
+def ScanVirus(vdb, vsize, sdb, fname):
+        #MD5 이용한  검색
+        ret, vname = ScanMD5(vdb, vsize, fname)
+        if ret == True:
+                 return ret, vname
+
+        # 특정 위치 이용한 검색
+        fp = open(fname, 'rb')
+        for t in sdb :
+                if ScanStr(fp, t[0], t[1]) == True :
+                        ret = True
+                        vname = t[2]
+                        break
+        fp.close()
+
+        return ret, vname
