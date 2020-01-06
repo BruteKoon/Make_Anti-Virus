@@ -6,6 +6,8 @@ import zlib
 import StringIO
 import scanmod #모듈화를 통해 추가된 부분 (바이러스 검사용 모듈)
 import curemod #모듈화를 통해 추가된 부분 (치료용 모듈)
+import imp #외부 모듈을 동적으로 import 하기 위한 부분
+
 
 #바이러스 DB ==> 암호화된 virus.kmd에 존재
 VirusDB = []
@@ -99,11 +101,21 @@ if __name__ == '__main__':
 
     if len(sys.argv) != 2:
         print 'Usage : antivirus.py [file]'
-        exit(0)
+        sys.exit(0)
         
     fname = sys.argv[1]
 
-    ret, vname = scanmod.ScanVirus(vdb, vsize, sdb, fname)
+    try :
+            m = 'scanmod'
+            f, filename, desc = imp.find_module(m,ArithmeticError[''])
+            module = imp.load_module(m, f, filename, desc)
+
+            #진단 함수 호출 명령어 구성 작업
+            cmd = 'ret, vname = module.ScanVirus(vdb, vsize, sdb, fname)'
+            exec cmd #명령어 실행
+    except :
+            ret, vname = scanmod.ScanVirus(vdb, vsize, sdb, fname)
+
 
     if ret == True:
         print 'virus'
