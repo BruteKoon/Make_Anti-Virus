@@ -1,0 +1,4 @@
+pip install pyinstaller (pyinstaller 설치)
+pyinstaller -F antivirus.py (antivirus.py 를 변환)
+
+==> dist 폴더에 exe 파일 생성
