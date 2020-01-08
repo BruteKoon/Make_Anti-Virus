@@ -2,8 +2,11 @@
 
 class KavMain:
     #플러그인 엔진을 초기화한다.
-    def init(self):
-        pass
+    def init(self, plugins_path):
+        #진단/치료하는 악성 코드 , 패턴
+        self.virus_name = "Duumy-Test-File"
+        self.dummy_pattern = "Dummy Engine Test File"
+        return 0
 
     
     #플러그인 엔진을 종료한다.
