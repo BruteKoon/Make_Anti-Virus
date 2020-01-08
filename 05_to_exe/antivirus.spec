@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['antivirus.py'],
-             pathex=['C:\\Users\\Koon\\Desktop\\Myblog\\make\\Make_Anti-Virus\\05_to_exe'],
+             pathex=['C:\\Users\\user\\Desktop\\Projectg\\Blog\\Make_Anti-Virus\\05_to_exe'],
              binaries=[],
              datas=[],
              hiddenimports=[],
