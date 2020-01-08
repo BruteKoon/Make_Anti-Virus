@@ -7,12 +7,13 @@ class KavMain:
         self.virus_name = "Duumy-Test-File"
         self.dummy_pattern = "Dummy Engine Test File"
         return 0
-
     
     #플러그인 엔진을 종료한다.
     def uninit(self):
-        pass
-
+        # 메모리 해제
+        del self.virus_name
+        del self.dummy_pattern
+        return 0
 
     #악성코드를 검사한다.
     def scan(self):
