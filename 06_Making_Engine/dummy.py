@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+import os
 
 class KavMain:
     # 플러그인 엔진을 초기화한다.
@@ -21,7 +22,7 @@ class KavMain:
             #파일을 통해 악성코드 패턴 읽기
             fp = open(filename)
             buf = fp.read(len(self.dummy_pattern))
-            fp.close()i
+            fp.close()
 
             # 악성코드 패턴 비교
             if buf == self.dummy_pattern :
@@ -34,7 +35,7 @@ class KavMain:
 
 
     # 악성코드를 치료한다.
-    def disinfected(self, filename, malware_id):
+    def disinfect(self, filename, malware_id):
         try:
             if malware_id == 0:
                 os.remove(filename)
