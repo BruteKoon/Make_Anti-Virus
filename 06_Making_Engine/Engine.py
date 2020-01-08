@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-class Main:
+class KavMain:
     #플러그인 엔진을 초기화한다.
     def init(self):
         pass
