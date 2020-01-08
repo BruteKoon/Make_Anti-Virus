@@ -54,8 +54,12 @@ class KavMain:
         return vlist
 
 
-    # 플러그인 엔진의 주요 정보를 알려준다.
+    # 플러그인 엔진의 주요 정보(만든 사람...)를 알려준다.
     def getinfo(self):
-        
+        info = dict()        
+        info['author'] = 'Koon'
+        info['version'] = '1.0'
+        info['title'] = 'Dummy Scan Engine'
+        info['kmd_name'] = 'dummy'
 
-        pass
+        return info
