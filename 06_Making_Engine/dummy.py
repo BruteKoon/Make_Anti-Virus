@@ -46,8 +46,12 @@ class KavMain:
 
 
     # 플러그인 엔진이 진단/치료 가능한 악성코드의 리스트를 알려준다.
-    def viruslist(self):
-        pass
+    def listvirus(self):
+        vlist = list()
+        
+        #진단하는 악성코드 이름 등록
+        vlist.append(self.virus_name)
+        return vlist
 
 
     # 플러그인 엔진의 주요 정보를 알려준다.
