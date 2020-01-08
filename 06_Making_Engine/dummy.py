@@ -16,8 +16,21 @@ class KavMain:
         return 0
 
     #악성코드를 검사한다.
-    def scan(self):
-        pass
+    def scan(self, filehandle, filename):
+        try:
+            #파일을 통해 악성코드 패턴 읽기
+            fp = open(filename)
+            buf = fp.read(len(self.dummy_pattern))
+            fp.close()i
+
+            # 악성코드 패턴 비교
+            if buf == self.dummy_pattern :
+                return True, self.virus_name, 0
+
+        except IOError:
+            pass
+        
+        return False, '', -1
 
 
     #악성코드를 치료한다.
