@@ -118,6 +118,26 @@ def make(src_fname, debug=False):
                 kmd_data += tmp_kmd_data + e_md5
                 break
 
+    #kmd file 이름을 만든다.
+    ext = fname.find('.')
+    kmd_name = fname[0:ext] + '.kmd'
 
+    try :
+        if kmd_data:
+            #kmd 파일을 생성한다.
+            open(kmd_name, 'wb').write(kmd_data)
+
+            #pyc 파일은 삭제한다.
+            os.remove(pyc_name)
+
+            if debug:
+                print ' success : %-13s -> %s' %(fname, kmd_name)
+            return True
+        else:
+            raise IOError
+    except:
+        if debug:
+            print ' Fail : %s' %fname
+        return False
 
 
