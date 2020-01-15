@@ -4,7 +4,7 @@ import os
 import sys
 import k2kmdfile
 
-if __name__ = '__main__':
+if __name__ == '__main__':
 
     #인자 값 체크
     if len(sys.argv) != 2:
